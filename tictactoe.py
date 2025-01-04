@@ -1,4 +1,5 @@
-# This program assumes PROPER USER INPUT! No error checking is provided. Remember, garbage in garbage out.
+import colorama
+from colorama import Fore, Back, Style
 
 class TicTacToe():
     def __init__(self, board, player1, player2):
@@ -69,7 +70,7 @@ class Board():
         print('| 1 | 2 | 3 |\n+---+---+---+\n| 4 | 5 | 6 |\n+---+---+---+\n| 7 | 8 | 9 |')
 
     def __repr__(self):
-        return '| T | I | C |\n+---+---+---+\n| T | A | C |\n+---+---+---+\n| T | O | E |'
+        return '| '+Fore.RED+'T'+Style.RESET_ALL+' | '+Fore.RED+'I'+Style.RESET_ALL+' | '+Fore.RED+'C'+Style.RESET_ALL+' |\n+---+---+---+\n| T | A | C |\n+---+---+---+\n| '+Fore.BLUE+'T'+Style.RESET_ALL+' | '+Fore.BLUE+'O'+Style.RESET_ALL+' | '+Fore.BLUE+'E'+Style.RESET_ALL+' |'
 
     def has_winner(self):
         # each list within move_list represents a row or column or diagonal

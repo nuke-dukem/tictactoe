@@ -1,6 +1,6 @@
 # This program assumes PROPER USER INPUT! No error checking is provided. Remember, garbage in garbage out.
 
-class Tic_tac_toe():
+class TicTacToe():
     def __init__(self, board, player1, player2):
         self.game_board = board
         self.player1 = player1
@@ -116,5 +116,5 @@ class Player():
 board1 = Board()
 player1 = Player("Bob")
 player2 = Player("John")
-game1 = Tic_tac_toe(board1, player1, player2)
+game1 = TicTacToe(board1, player1, player2)
 game1.play_game()

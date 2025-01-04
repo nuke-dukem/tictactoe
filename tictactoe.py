@@ -109,7 +109,6 @@ class Player():
     def x_or_o(self):
         while self.game_char != "X" and self.game_char != "O":
             self.game_char = (input("Hello {}! Choose X or O: ".format(self.name)))
-            print(self.game_char)
     def __repr__(self):
         return "Player name: {}\nPlayer game_character: {}".format(self.name, self.game_char)
 

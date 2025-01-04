@@ -12,9 +12,13 @@ class TicTacToe():
     def start_game(self):
         self.player1.x_or_o()
         if player1.game_char == "X":
+            player1.game_char = Fore.YELLOW + player1.game_char + Style.RESET_ALL
             player2.game_char = "O"
+            player2.game_char = Fore.MAGENTA + player2.game_char + Style.RESET_ALL
         else:
             player2.game_char = "X"
+            player2.game_char = Fore.MAGENTA + player2.game_char + Style.RESET_ALL
+            player1.game_char = Fore.YELLOW + player1.game_char + Style.RESET_ALL
         self.game_board.display_board()
 
     def put_move_on_board(self, move, game_char):
@@ -109,13 +113,14 @@ class Player():
 
     def x_or_o(self):
         while self.game_char != "X" and self.game_char != "O":
-            self.game_char = (input("Hello {}! Choose X or O: ".format(self.name)))
+            self.game_char = input("Hello {}! Choose X or O: ".format(self.name))
+
     def __repr__(self):
         return "Player name: {}\nPlayer game_character: {}".format(self.name, self.game_char)
 
 
 board1 = Board()
-player1 = Player("Bob")
-player2 = Player("John")
+player1 = Player("Jen")
+player2 = Player("Karl")
 game1 = TicTacToe(board1, player1, player2)
 game1.play_game()

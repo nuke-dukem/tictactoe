@@ -10,7 +10,10 @@ class Tic_tac_toe():
 
     def start_game(self):
         self.player1.x_or_o()
-        self.player2.x_or_o()
+        if player1.game_char == "X":
+            player2.game_char = "O"
+        else:
+            player2.game_char = "X"
         self.game_board.display_board()
 
     def put_move_on_board(self, move, game_char):
@@ -99,11 +102,8 @@ class Board():
 
 
 class Player():
-    wins = 0
-    losses = 0
-    game_char = ""
-
     def __init__(self, name):
+        self.game_char = ""
         self.name = name
 
     def x_or_o(self):

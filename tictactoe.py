@@ -2,6 +2,7 @@ import colorama
 from colorama import Fore, Back, Style
 
 class TicTacToe():
+    player_moves = []
     def __init__(self, board, player1, player2):
         self.game_board = board
         self.player1 = player1
@@ -48,7 +49,13 @@ class TicTacToe():
         p1_move_count = 0
         self.start_game()
         while winner == False:
-            p1_input = int(input("Choose a square {}: ".format(player1.name)))
+            try:
+                p1_input = int(input("Choose a square {}: ".format(player1.name)))
+            except:
+                p1_input = int(input("Invalid input {}, choose another: ".format(player1.name)))
+            while p1_input in TicTacToe.player_moves:
+                p1_input = int(input("Invalid move {}, choose another: ".format(player1.name)))
+            TicTacToe.player_moves.append(p1_input)
             self.put_move_on_board(p1_input, player1.game_char)
             self.game_board.display_board()
             p1_move_count += 1
@@ -58,7 +65,13 @@ class TicTacToe():
             if p1_move_count == 5:
                 print("Draw")
                 break
-            p2_input = int(input("Choose a square {}: ".format(player2.name)))
+            try:
+                p2_input = int(input("Choose a square {}: ".format(player2.name)))
+            except:
+                p2_input = int(input("Invalid input {}, choose another: ".format(player2.name)))
+            while p2_input in TicTacToe.player_moves:
+                p2_input = int(input("Invalid move {}, choose another: ".format(player2.name)))
+            TicTacToe.player_moves.append(p2_input)
             self.put_move_on_board(p2_input, player2.game_char)
             self.game_board.display_board()
             if self.game_board.has_winner():
